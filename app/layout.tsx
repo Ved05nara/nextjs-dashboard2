@@ -9,6 +9,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+    <head>
+      <title>Dashboard</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+    </head>
       <body className={`${inter.className} antialiased`}>{children}</body>
     </html>
   );
