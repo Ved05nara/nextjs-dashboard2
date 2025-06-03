@@ -3,7 +3,7 @@
 import { ArrowRightIcon, SparklesIcon, AcademicCapIcon, RocketLaunchIcon, BuildingOffice2Icon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import Image from 'next/image';
-import { InteractiveGridPattern } from "@/components/magicui/interactive-grid-pattern";
+import { RetroGrid } from "@/components/magicui/retro-grid";
 import { TypingAnimation } from "@/components/magicui/typing-animation";
 import { AuroraText } from "@/components/magicui/aurora-text";
 import { motion } from "framer-motion";
@@ -13,7 +13,7 @@ export default function Page() {
     <main className="flex min-h-screen flex-col relative">
       {/* Hero Section */}
       <div className="relative min-h-screen w-full bg-gradient-to-br from-blue-800 to-indigo-900 overflow-hidden">
-        <InteractiveGridPattern />
+        <RetroGrid />
         
         {/* Header */}
         <header className="absolute top-0 z-20 w-full px-6 py-6">
@@ -23,13 +23,7 @@ export default function Page() {
                 Acme.
               </AuroraText>
             </Link>
-            <Link
-              href="/dashboard"
-              className="flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-medium text-blue-600 transition-all hover:bg-white/90 hover:scale-105"
-            >
-              <span>Go to Dashboard</span>
-              <ArrowRightIcon className="w-4 h-4" />
-            </Link>
+            
           </div>
         </header>
 
@@ -73,15 +67,7 @@ export default function Page() {
                   href="/dashboard"
                   className="flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-blue-600 shadow-lg transition-all hover:bg-white/90 hover:shadow-xl"
                 >
-                  Get Started <ArrowRightIcon className="w-4 h-4" />
-                </Link>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.03 }}>
-                <Link
-                  href="/demo"
-                  className="rounded-full bg-transparent px-8 py-3.5 text-sm font-semibold text-white shadow-lg ring-1 ring-white transition-all hover:bg-white/10 hover:ring-2"
-                >
-                  Live Demo
+                  Go to Dashboard <ArrowRightIcon className="w-4 h-4" />
                 </Link>
               </motion.div>
             </div>
@@ -117,7 +103,7 @@ export default function Page() {
       </div>
 
       {/* Features Section */}
-      <section className="absolute bottom-0 left-0 right-0 translate-y-[350%] z-0 bg-white py-20">
+      <section className="absolute bottom-0 left-0 right-0 translate-y-[100%] z-0 bg-white py-20">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0 }}
@@ -172,7 +158,7 @@ export default function Page() {
       </section>
 
       {/* Pricing Section */}
-      <section className="absolute bottom-0 left-0 right-0 translate-y-[300%] z-0 bg-gray-50 py-20">
+      <section className="absolute bottom-0 left-0 right-0 translate-y-[200%] z-0 bg-gray-50 py-20">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0 }}
@@ -189,8 +175,8 @@ export default function Page() {
               {[
                 {
                   title: "Starter",
-                  price: "$29",
-                  period: "/month",
+                  price: "₹299",
+                  period: "/3 months",
                   description: "Perfect for individuals and small teams",
                   icon: <AcademicCapIcon className="h-8 w-8 text-blue-500" />,
                   features: [
@@ -202,8 +188,8 @@ export default function Page() {
                 },
                 {
                   title: "Business",
-                  price: "$99",
-                  period: "/month",
+                  price: "₹999",
+                  period: "/3 months",
                   description: "For growing businesses",
                   icon: <RocketLaunchIcon className="h-8 w-8 text-purple-500" />,
                   features: [
@@ -217,8 +203,8 @@ export default function Page() {
                 },
                 {
                   title: "Enterprise",
-                  price: "Custom",
-                  period: "",
+                  price: "₹1399",
+                  period: "/3 months",
                   description: "For large organizations",
                   icon: <BuildingOffice2Icon className="h-8 w-8 text-indigo-500" />,
                   features: [
@@ -271,7 +257,7 @@ export default function Page() {
       </section>
 
       {/* Footer Section */}
-      <footer className="bg-blue-900 text-white py-16 absolute bottom-0 left-0 right-0 translate-y-[900%] z-0">
+      <footer className="bg-blue-900 text-white py-16 absolute bottom-0 left-0 right-0 translate-y-[470%] z-0">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
             <div>

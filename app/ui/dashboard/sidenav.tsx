@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { PowerIcon } from '@heroicons/react/24/outline';
 import { HomeIcon, DocumentTextIcon, UsersIcon } from '@heroicons/react/24/solid';
 import clsx from 'clsx';
+import { AuroraText } from "@/components/magicui/aurora-text";
 
 const links = [
   { name: 'Home', href: '/', icon: HomeIcon },
@@ -18,13 +19,15 @@ export default function SideNav() {
   return (
     <div className="flex h-full flex-col px-3 py-4 md:px-2">
       <Link
-        className="mb-2 flex h-20 items-end justify-start rounded-md bg-blue-600 p-4 md:h-40"
+        className="mb-2 flex h-20 items-end justify-start rounded-md bg-#42bff5-600 p-4 md:h-40"
         href="/"
         title="Home"
         aria-label="Home"
       >
         <div className="w-32 text-white md:w-40">
-          {/* Your logo or brand name can go here */}
+          {<AuroraText className="text-3xl font-bold text-white hover:text-blue-200 transition-colors">
+              Acme.
+            </AuroraText>}
         </div>
       </Link>
       <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
