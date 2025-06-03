@@ -9,11 +9,11 @@ export default function DashboardSkeleton() {
         <div className="loader">
           <p>loading</p>
           <div className="words">
-            <span className="word">buttons</span>
-            <span className="word">forms</span>
-            <span className="word">switches</span>
+            <span className="word">invoices</span>
+            <span className="word">graphs</span>
+            <span className="word">customers</span>
             <span className="word">cards</span>
-            <span className="word">buttons</span>
+            <span className="word">data</span>
           </div>
         </div>
       </div>
