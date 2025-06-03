@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRightIcon, SparklesIcon } from "@heroicons/react/24/outline";
+import { ArrowRightIcon, SparklesIcon, AcademicCapIcon, RocketLaunchIcon, BuildingOffice2Icon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import Image from 'next/image';
 import { InteractiveGridPattern } from "@/components/magicui/interactive-grid-pattern";
@@ -10,33 +10,30 @@ import { motion } from "framer-motion";
 
 export default function Page() {
   return (
-    <main className="flex min-h-screen flex-col">
-      {/* Hero Section - Now FULL blue bg */}
-      <div className="relative min-h-screen w-full bg-gradient-to-br from-blue-800 to-indigo-900">
+    <main className="flex min-h-screen flex-col relative">
+      {/* Hero Section */}
+      <div className="relative min-h-screen w-full bg-gradient-to-br from-blue-800 to-indigo-900 overflow-hidden">
         <InteractiveGridPattern />
         
         {/* Header */}
-        <header className="absolute top-0 z-10 w-full px-6 py-6">
+        <header className="absolute top-0 z-20 w-full px-6 py-6">
           <div className="mx-auto max-w-7xl flex items-center justify-between">
-            <Link
-              href="/"
-            ><AuroraText className="text-3xl font-bold text-white">Acme.</AuroraText></Link>
-            <nav className="hidden md:flex gap-8">
-              <Link href="/features" className="text-white/90 hover:text-white transition-colors">Features</Link>
-              <Link href="/pricing" className="text-white/90 hover:text-white transition-colors">Pricing</Link>
-              <Link href="/about" className="text-white/90 hover:text-white transition-colors">About</Link>
-            </nav>
+            <Link href="/">
+              <AuroraText className="text-3xl font-bold text-white hover:text-blue-200 transition-colors">
+                Acme.
+              </AuroraText>
+            </Link>
             <Link
               href="/dashboard"
-              className="flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-medium text-blue-600 transition-all hover:bg-white/90"
+              className="flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-medium text-blue-600 transition-all hover:bg-white/90 hover:scale-105"
             >
-              <span>Get Started</span>
+              <span>Go to Dashboard</span>
               <ArrowRightIcon className="w-4 h-4" />
             </Link>
           </div>
         </header>
 
-        {/* Text & Buttons - Centered in blue area */}
+        {/* Hero Content */}
         <div className="relative z-10 flex flex-col items-center justify-center px-6 text-center pt-32 pb-64">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -44,12 +41,15 @@ export default function Page() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto"
           >
-            <div className="mb-8 flex justify-center">
-              <span className="flex items-center gap-2 rounded-full bg-white/20 px-5 py-2 text-sm font-medium text-white ring-1 ring-white/30 backdrop-blur-sm">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="mb-8 flex justify-center"
+            >
+              <span className="flex items-center gap-2 rounded-full bg-white/20 px-5 py-2 text-sm font-medium text-white ring-1 ring-white/30 backdrop-blur-sm hover:bg-white/30 transition-all">
                 <SparklesIcon className="h-4 w-4" />
                 Now with AI superpowers
               </span>
-            </div>
+            </motion.div>
             
             <h1 className="text-5xl font-bold tracking-tight text-white sm:text-6xl md:text-7xl">
               <TypingAnimation className="bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
@@ -57,32 +57,43 @@ export default function Page() {
               </TypingAnimation>
             </h1>
             
-            <p className="mt-6 text-lg text-white/80 max-w-2xl mx-auto">
-              The all-in-one platform to grow your business faster than ever before.
-            </p>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+              className="mt-6 text-lg text-white/80 max-w-2xl mx-auto"
+            >
+              The all-in-one platform to grow your business faster than ever before. 
+              Join 10,000+ businesses already revolutionizing their workflow.
+            </motion.p>
             
             <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="/dashboard"
-                className="flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-blue-600 shadow-lg transition-all hover:bg-white/90 hover:shadow-xl"
-              >
-                Get Started <ArrowRightIcon className="w-4 h-4" />
-              </Link>
-              <Link
-                href="/demo"
-                className="rounded-full bg-transparent px-8 py-3.5 text-sm font-semibold text-white shadow-lg ring-1 ring-white transition-all hover:bg-white/10"
-              >
-                Live Demo
-              </Link>
+              <motion.div whileHover={{ scale: 1.03 }}>
+                <Link
+                  href="/dashboard"
+                  className="flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-blue-600 shadow-lg transition-all hover:bg-white/90 hover:shadow-xl"
+                >
+                  Get Started <ArrowRightIcon className="w-4 h-4" />
+                </Link>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.03 }}>
+                <Link
+                  href="/demo"
+                  className="rounded-full bg-transparent px-8 py-3.5 text-sm font-semibold text-white shadow-lg ring-1 ring-white transition-all hover:bg-white/10 hover:ring-2"
+                >
+                  Live Demo
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         </div>
-        {/* Hero Image - Pushed WAY down */}
+
+        {/* Hero Image */}
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
-          className="absolute bottom-0 left-0 right-0 translate-y-[100%] z-0" // Pushes image 100% down
+          className="absolute bottom-0 left-0 right-0 translate-y-[100%] z-0"
         >
           <div className="relative w-full max-w-6xl mx-auto">
             <Image
@@ -91,7 +102,7 @@ export default function Page() {
               width={1200}
               height={600}
               priority
-              className="mx-auto hidden md:block"
+              className="mx-auto hidden md:block rounded-t-xl shadow-2xl"
             />
             <Image
               src="/hero-mobile.png"
@@ -99,54 +110,225 @@ export default function Page() {
               width={560}
               height={620}
               priority
-              className="mx-auto block md:hidden"
+              className="mx-auto block md:hidden rounded-t-xl shadow-2xl"
             />
           </div>
         </motion.div>
       </div>
 
-      {/* Features Section - Starts BELOW the image */}
-      <section className="pt-48 pb-24 px-6 sm:px-10 bg-white"> {/* Extra top padding */}
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-6">Why Choose Acme?</h2>
-          <p className="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-16">
-            Acme is designed to help you build and scale your business with ease. 
-            Here are some of the key features that set us apart.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Blazing Fast",
-                description: "Built with Next.js for optimal performance and SEO.",
-                icon: "⚡"
-              },
-              {
-                title: "Secure by Default",
-                description: "Enterprise-grade security out of the box.",
-                icon: "🔒"
-              },
-              {
-                title: "Easy Integration",
-                description: "Connect with your favorite tools in minutes.",
-                icon: "🔌"
-              }
-            ].map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-gray-50 p-8 rounded-xl border border-gray-200 hover:border-blue-200 transition-all"
-              >
-                <div className="text-4xl mb-5">{feature.icon}</div>
-                <h3 className="text-xl font-semibold mb-3 text-gray-800">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
-              </motion.div>
-            ))}
-          </div>
+      {/* Features Section */}
+      <section className="absolute bottom-0 left-0 right-0 translate-y-[350%] z-0 bg-white py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl font-bold text-center text-gray-900 mb-6">Why Choose Acme?</h2>
+            <p className="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-16">
+              Acme is designed to help you build and scale your business with ease. 
+              Here are some of the key features that set us apart.
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                {
+                  title: "Blazing Fast Performance",
+                  description: "Built with Next.js for optimal performance and SEO. Benchmarked 3x faster than competitors.",
+                  icon: "⚡",
+                  color: "text-yellow-400"
+                },
+                {
+                  title: "Enterprise Security",
+                  description: "End-to-end encryption and SOC2 compliance out of the box. Your data stays protected.",
+                  icon: "🔒",
+                  color: "text-blue-500"
+                },
+                {
+                  title: "Seamless Integrations",
+                  description: "Connect with 100+ tools including Slack, Notion, and Salesforce in minutes.",
+                  icon: "🔌",
+                  color: "text-green-500"
+                }
+              ].map((feature, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  whileHover={{ y: -5 }}
+                  transition={{ delay: index * 0.1, duration: 0.3 }}
+                  viewport={{ once: true }}
+                  className="bg-gray-50 p-8 rounded-xl border border-gray-200 hover:border-blue-200 transition-all hover:shadow-md"
+                >
+                  <div className={`text-4xl mb-5 ${feature.color}`}>{feature.icon}</div>
+                  <h3 className="text-xl font-semibold mb-3 text-gray-800">{feature.title}</h3>
+                  <p className="text-gray-600">{feature.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
+
+      {/* Pricing Section */}
+      <section className="absolute bottom-0 left-0 right-0 translate-y-[300%] z-0 bg-gray-50 py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl font-bold text-center text-gray-900 mb-6">Simple, Transparent Pricing</h2>
+            <p className="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-16">
+              Start for free and upgrade as you grow. No hidden fees, cancel anytime.
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                {
+                  title: "Starter",
+                  price: "$29",
+                  period: "/month",
+                  description: "Perfect for individuals and small teams",
+                  icon: <AcademicCapIcon className="h-8 w-8 text-blue-500" />,
+                  features: [
+                    "Up to 5 users",
+                    "Basic analytics",
+                    "Email support",
+                    "100GB storage"
+                  ]
+                },
+                {
+                  title: "Business",
+                  price: "$99",
+                  period: "/month",
+                  description: "For growing businesses",
+                  icon: <RocketLaunchIcon className="h-8 w-8 text-purple-500" />,
+                  features: [
+                    "Up to 20 users",
+                    "Advanced analytics",
+                    "Priority support",
+                    "1TB storage",
+                    "API access"
+                  ],
+                  popular: true
+                },
+                {
+                  title: "Enterprise",
+                  price: "Custom",
+                  period: "",
+                  description: "For large organizations",
+                  icon: <BuildingOffice2Icon className="h-8 w-8 text-indigo-500" />,
+                  features: [
+                    "Unlimited users",
+                    "Dedicated account manager",
+                    "24/7 support",
+                    "Custom storage",
+                    "SSO & SAML"
+                  ]
+                }
+              ].map((plan, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  whileHover={{ y: -5 }}
+                  transition={{ delay: index * 0.1, duration: 0.3 }}
+                  viewport={{ once: true }}
+                  className={`bg-white p-8 rounded-xl border border-gray-200 hover:border-blue-200 transition-all hover:shadow-lg relative ${plan.popular ? 'ring-2 ring-blue-500' : ''}`}
+                >
+                  {plan.popular && (
+                    <span className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                      MOST POPULAR
+                    </span>
+                  )}
+                  <div className="flex items-center gap-3 mb-6">
+                    {plan.icon}
+                    <h3 className="text-2xl font-bold text-gray-800">{plan.title}</h3>
+                  </div>
+                  <div className="mb-6">
+                    <span className="text-4xl font-bold text-gray-900">{plan.price}</span>
+                    <span className="text-gray-500">{plan.period}</span>
+                  </div>
+                  <p className="text-gray-600 mb-6">{plan.description}</p>
+                  <ul className="space-y-3 mb-8">
+                    {plan.features.map((feature, i) => (
+                      <li key={i} className="flex items-center gap-2 text-gray-600">
+                        <svg className="h-5 w-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Footer Section */}
+      <footer className="bg-blue-900 text-white py-16 absolute bottom-0 left-0 right-0 translate-y-[900%] z-0">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div>
+              <AuroraText className="text-3xl font-bold mb-4">Acme.</AuroraText>
+              <p className="text-blue-200">
+                The all-in-one platform for modern businesses.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Product</h3>
+              <ul className="space-y-2">
+                <li><Link href="/features" className="text-blue-200 hover:text-white transition-colors">Features</Link></li>
+                <li><Link href="/pricing" className="text-blue-200 hover:text-white transition-colors">Pricing</Link></li>
+                <li><Link href="/integrations" className="text-blue-200 hover:text-white transition-colors">Integrations</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Resources</h3>
+              <ul className="space-y-2">
+                <li><Link href="/blog" className="text-blue-200 hover:text-white transition-colors">Blog</Link></li>
+                <li><Link href="/docs" className="text-blue-200 hover:text-white transition-colors">Documentation</Link></li>
+                <li><Link href="/support" className="text-blue-200 hover:text-white transition-colors">Support</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Company</h3>
+              <ul className="space-y-2">
+                <li><Link href="/about" className="text-blue-200 hover:text-white transition-colors">About</Link></li>
+                <li><Link href="/careers" className="text-blue-200 hover:text-white transition-colors">Careers</Link></li>
+                <li><Link href="/contact" className="text-blue-200 hover:text-white transition-colors">Contact</Link></li>
+              </ul>
+            </div>
+          </div>
+          <div className="mt-12 pt-8 border-t border-blue-800 flex flex-col md:flex-row items-center justify-between">
+            <p className="text-blue-300 text-sm mb-4 md:mb-0">
+              Project by Vedant Narayan. Inspired by Tailwind UI and Magic UI.
+            </p>
+            <div className="flex space-x-6">
+              <Link href="#" className="text-blue-300 hover:text-white">
+                <span className="sr-only">Twitter</span>
+                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                </svg>
+              </Link>
+              <Link href="#" className="text-blue-300 hover:text-white">
+                <span className="sr-only">GitHub</span>
+                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+                </svg>
+              </Link>
+            </div>
+          </div>
+          <div className="mt-8 text-center text-sm text-blue-400">
+            &copy; {new Date().getFullYear()} Acme. All rights reserved.
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }
