@@ -28,7 +28,7 @@ export default function SideNav() {
           {<AuroraText className="text-3xl font-bold text-white hover:text-blue-200 transition-colors">
               Acme.
             </AuroraText>}
-        </div>
+      </div>
       </Link>
       <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
         <div className="flex flex-col space-y-2">

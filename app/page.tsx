@@ -267,26 +267,15 @@ export default function Page() {
               </p>
             </div>
             <div>
-              <h3 className="text-lg font-semibold mb-4">Product</h3>
-              <ul className="space-y-2">
-                <li><Link href="/features" className="text-blue-200 hover:text-white transition-colors">Features</Link></li>
-                <li><Link href="/pricing" className="text-blue-200 hover:text-white transition-colors">Pricing</Link></li>
-                <li><Link href="/integrations" className="text-blue-200 hover:text-white transition-colors">Integrations</Link></li>
-              </ul>
+              
             </div>
             <div>
-              <h3 className="text-lg font-semibold mb-4">Resources</h3>
-              <ul className="space-y-2">
-                <li><Link href="/blog" className="text-blue-200 hover:text-white transition-colors">Blog</Link></li>
-                <li><Link href="/docs" className="text-blue-200 hover:text-white transition-colors">Documentation</Link></li>
-                <li><Link href="/support" className="text-blue-200 hover:text-white transition-colors">Support</Link></li>
-              </ul>
+              
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-4">Company</h3>
               <ul className="space-y-2">
                 <li><Link href="/about" className="text-blue-200 hover:text-white transition-colors">About</Link></li>
-                <li><Link href="/careers" className="text-blue-200 hover:text-white transition-colors">Careers</Link></li>
                 <li><Link href="/contact" className="text-blue-200 hover:text-white transition-colors">Contact</Link></li>
               </ul>
             </div>
