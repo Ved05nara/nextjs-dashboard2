@@ -6,9 +6,10 @@ import { PowerIcon } from '@heroicons/react/24/outline';
 import { HomeIcon, DocumentTextIcon, UsersIcon } from '@heroicons/react/24/solid';
 import clsx from 'clsx';
 import { AuroraText } from "@/components/magicui/aurora-text";
+import { InboxIcon } from '@heroicons/react/20/solid';
 
 const links = [
-  { name: 'Home', href: '/', icon: HomeIcon },
+  { name: 'Dashboard', href: '/dashboard', icon: InboxIcon },
   { name: 'Invoices', href: '/invoices', icon: DocumentTextIcon },
   { name: 'Customers', href: '/customers', icon: UsersIcon },
 ];
