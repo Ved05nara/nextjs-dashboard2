@@ -1,7 +1,13 @@
 import LoginForm from '@/app/ui/login-form';
 import { Suspense } from 'react';
 import { AuroraText } from '@/components/magicui/aurora-text';
+import { Metadata } from 'next';
  
+export const metadata: Metadata = {
+  title: 'Login | Acme Dashboard',
+  description: 'Login to the Acme Dashboard',
+};
+
 export default function LoginPage() {
   return (
     <main className="flex items-center justify-center md:h-screen">

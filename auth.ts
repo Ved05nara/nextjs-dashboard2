@@ -1,5 +1,5 @@
 import NextAuth from 'next-auth';
-import Credentials from 'next-auth/providers/credentials';
+import CredentialsProvider from 'next-auth/providers/credentials';
 import { authConfig } from './auth.config';
 import { z } from 'zod';
 import type { User } from '@/app/lib/definitions';
@@ -21,7 +21,7 @@ async function getUser(email: string): Promise<User | undefined> {
 export const { auth, signIn, signOut } = NextAuth({
   ...authConfig,
   providers: [
-    Credentials({
+    CredentialsProvider({
       async authorize(credentials) {
         const parsedCredentials = z
           .object({ email: z.string().email(), password: z.string().min(6) })
@@ -40,4 +40,13 @@ export const { auth, signIn, signOut } = NextAuth({
       },
     }),
   ],
+  callbacks: {
+  async redirect({ url, baseUrl }) {
+    // Redirect to dashboard after login
+    if (url === '/api/auth/signin' || url === '/login') {
+      return `${baseUrl}/dashboard`;
+    }
+    return url;
+  }
+}
 });

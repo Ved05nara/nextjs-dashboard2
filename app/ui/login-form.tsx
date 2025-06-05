@@ -1,5 +1,5 @@
 'use client';
- 
+import { signIn } from '@/auth';
 import { lusitana } from '@/app/ui/fonts';
 import {
   AtSymbolIcon,
