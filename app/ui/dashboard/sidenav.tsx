@@ -1,22 +1,27 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { PowerIcon } from '@heroicons/react/24/outline';
-import { HomeIcon, DocumentTextIcon, UsersIcon } from '@heroicons/react/24/solid';
-import clsx from 'clsx';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { PowerIcon } from "@heroicons/react/24/outline";
+import {
+  HomeIcon,
+  DocumentTextIcon,
+  UsersIcon,
+} from "@heroicons/react/24/solid";
+import clsx from "clsx";
 import { AuroraText } from "@/components/magicui/aurora-text";
-import { InboxIcon } from '@heroicons/react/20/solid';
+import { signOut } from "@/auth";
+import { InboxIcon } from "@heroicons/react/20/solid";
 
 const links = [
-  { name: 'Dashboard', href: '/dashboard', icon: InboxIcon },
-  { name: 'Invoices', href: '/invoices', icon: DocumentTextIcon },
-  { name: 'Customers', href: '/customers', icon: UsersIcon },
+  { name: "Dashboard", href: "/dashboard", icon: InboxIcon },
+  { name: "Invoices", href: "/invoices", icon: DocumentTextIcon },
+  { name: "Customers", href: "/customers", icon: UsersIcon },
 ];
 
 export default function SideNav() {
   const pathname = usePathname();
-  
+
   return (
     <div className="flex h-full flex-col px-3 py-4 md:px-2">
       <Link
@@ -26,10 +31,12 @@ export default function SideNav() {
         aria-label="Home"
       >
         <div className="w-32 text-white md:w-40">
-          {<AuroraText className="text-3xl font-bold text-white hover:text-blue-200 transition-colors">
+          {
+            <AuroraText className="text-3xl font-bold text-white hover:text-blue-200 transition-colors">
               Acme.
-            </AuroraText>}
-      </div>
+            </AuroraText>
+          }
+        </div>
       </Link>
       <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
         <div className="flex flex-col space-y-2">
@@ -40,9 +47,9 @@ export default function SideNav() {
                 key={link.name}
                 href={link.href}
                 className={clsx(
-                  'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3',
+                  "flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3",
                   {
-                    'bg-sky-100 text-blue-600': pathname === link.href,
+                    "bg-sky-100 text-blue-600": pathname === link.href,
                   }
                 )}
               >
@@ -53,7 +60,12 @@ export default function SideNav() {
           })}
         </div>
         <div className="hidden h-auto w-full grow rounded-md bg-gray-50 md:block"></div>
-        <form>
+        <form
+          action={async () => {
+            "use server";
+            await signOut({ redirectTo: "/" });
+          }}
+        >
           <button className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3">
             <PowerIcon className="w-6" />
             <div className="hidden md:block">Sign Out</div>
